@@ -1,0 +1,20 @@
+<!-- app/views/users/new.html.erb -->
+<h1>Register</h1>
+
+<form action="<%= session_url %>" method="post">
+  <label for="user_username">Username</label>
+  <input
+     id="user_username"
+     name="user[user_email]"
+     type="text">
+  <br>
+
+  <label for="user_password">Password</label>
+  <input
+     id="user_password"
+     name="user[password]"
+     type="password">
+  <br>
+
+  <input type="submit" value="Log in">
+</form>
