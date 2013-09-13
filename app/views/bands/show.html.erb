@@ -1,0 +1,30 @@
+<form action= <%= new_band_album_url @band.id %> method="GET">
+  <input type = "submit" value="Click here to add a new album">
+</form>
+
+<% @band.albums.each do |album| %>
+
+<form action="<%= edit_album_url album.id %>" method="GET">
+  <input type = "submit" value="Edit this album">
+</form>
+
+
+<li><%= @band.name %>'s album: <%= link_to album.title, album_url(album.id) %>
+  <form action= <%= new_album_track_url(album.id) %> method="GET">
+    <input type = "submit" value="Click here to add a new track for this album">
+  </form>
+  <form action= <%= album_url album.id  %> method="POST">
+    <input type = "submit" value="Delete this album">
+    <input type="hidden" name="_method" value="DELETE">
+  </form>
+  <% album.recordings.each do |track| %>
+  <ul>
+    <li>Track: <%= link_to track.title, track_url %></li>
+
+  </ul>
+    <% end %>
+        <% end %>
+
+        <form action="<%= bands_url %>" method="GET">
+          <input type = "submit" value="Click here to the index">
+        </form>

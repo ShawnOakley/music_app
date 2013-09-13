@@ -1,0 +1,33 @@
+<h2><%= @track.title %></h2>
+
+<p><%= @track.lyrics %></p>
+
+<p>
+
+
+
+  <% @notes = @track.comments %>
+
+  <% @notes.each do |note| %>
+  <li><%= note.comment %></li>
+  <form action= "<%= note_url note.id  %>" method="POST">
+    <input type = "submit" value="Delete this comment">
+    <input type="hidden" name="_method" value="DELETE">
+  </form>
+  <% end %>
+
+</p>
+
+<form action="<%= edit_track_url @track.id %>" method="GET">
+  <input type = "submit" value="Edit this track">
+</form>
+
+
+<form action= "<%= new_track_note_url @track.id %>" method="GET">
+  <input type = "submit" value="Add a new comment">
+</form>
+
+
+<form action="<%= bands_url %>" method="GET">
+  <input type = "submit" value="Click here to return to the index">
+</form>

@@ -1,0 +1,26 @@
+
+The following albums are currently available:
+<ul>
+<ul>
+<% @albums.each do |album| %>
+
+<li><%= link_to album.title, album_url(album.id) %>
+  Artist: <%= "#{album.band.name}" %>
+  <form action= <%= album_url album.id  %> method="POST">
+    <input type = "submit" value="Delete this band">
+    <input type="hidden" name="_method" value="DELETE">
+  </form>
+
+
+
+      <% album.recordings.each do |track| %>
+      <ul>
+        <li>Track: <%= link_to track.title, track_url %></li>
+
+      </ul>
+        <% end %>
+    <% end %>
+    </li>
+  </ul>
+
+</ul>

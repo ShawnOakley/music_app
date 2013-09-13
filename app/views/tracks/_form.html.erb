@@ -1,0 +1,25 @@
+<% action = (!selected_track.nil? ? tracks_url(id) : album_tracks_url(album_id))  %>
+<% method = (!selected_track.nil? ? :put : :post) %>
+
+
+
+<form action="<%= action %>" method="POST">
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <p>
+  <label for="title">Track Title
+  <input type="text" name="track[title]" >
+  </label>
+  </p>
+
+  <p>
+    <label for="lyrics">Lyrics
+    <input type="textarea" name="track[lyrics]">
+    </label>
+  </p>
+
+    <input type="hidden" name="track[album_id]" value="<%= album_id %>">
+
+    <input type="submit" value="Submit track info">
+
+</form>

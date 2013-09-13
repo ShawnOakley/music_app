@@ -1,0 +1,14 @@
+
+<form action="<%= track_notes_url(params[:track_id]) %>" method="POST">
+
+  <p>
+  <label for="text">Comment text
+  <input type="text" name="comment[comment]" >
+  </label>
+  </p>
+
+
+   <input type="hidden" name="comment[track_id]" value="<%= params[:track_id] %>">
+    <input type="submit" value="Submit comment">
+
+</form>

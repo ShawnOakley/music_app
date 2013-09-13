@@ -1,0 +1,16 @@
+<h2><%= link_to @album.band.name, band_url(@album.band) %>'s record: <%= @album.title %></h2>
+  <% @album.recordings.each_with_index do |track, index| %>
+
+  <ul>
+    <li>Track <%= "#{index + 1}" %>: <%= link_to track.title, track_url %></li>
+
+  </ul>
+        <% end %>
+
+<form action="<%= band_url @album.band_id %>" method="GET">
+  <input type = "submit" value="Click here to return to the artist's page.">
+</form>
+
+<form action="<%= bands_url %>" method="GET">
+  <input type = "submit" value="Click here to the index">
+</form>

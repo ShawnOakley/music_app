@@ -1,0 +1,18 @@
+<% action = (selected_album.persisted? ? album_url(id) : band_albums_url(band_id))  %>
+<% method = (selected_album.persisted? ? :put : :post) %>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <p>
+    <label>
+      Album Name
+      <input type="text" name="album[title]">
+    </label>
+  </p>
+
+  <input type="hidden" name="album[band_id]" value="<%= band_id %>">
+
+  <input type="submit" value="Submit info">
+
+</form>
